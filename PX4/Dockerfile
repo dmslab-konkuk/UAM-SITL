@@ -11,6 +11,18 @@ RUN git checkout v1.13.2
 RUN git submodule sync --recursive && git submodule update --init --recursive
 RUN git add src/drivers/gps/devices
 RUN export PX4_SIM_HOST_ADDR=192.168.0.2
+WORKDIR ..
+RUN git clone https://github.com/mavlink-router/mavlink-router.git
+WORKDIR mavlink-router
+RUN git submodule update --init --recursive
+RUN apt-get install -y ninja-build pkg-config gcc g++ systemd
+RUN pip3 install meson
+RUN meson setup build .
+RUN ninja -C build
+RUN ninja -C build install
 EXPOSE 4560
 EXPOSE 14540/udp
+EXPOSE 14550/udp
+WORKDIR ..
+WORKDIR PX4-Autopilot
 CMD ["make", "px4_sitl_default", "none_iris"]
