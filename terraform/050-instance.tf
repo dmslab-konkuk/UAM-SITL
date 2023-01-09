@@ -9,4 +9,14 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
   }
   security_groups = ["default"]
   image_id = "${var.image-ubuntu}"
+  provisioner "Install-PX4" {
+    command     = "initPX4.sh"
+    interpreter = ["/bin/bash"]
+    working_dir = path.module
+
+    environment = {
+      PX4_SIM_PORT=4560
+      PX4_SIM_HOST_ADDR=117.16.136.191
+    }
+  }
 }
