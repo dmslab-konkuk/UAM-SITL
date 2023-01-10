@@ -1,3 +1,4 @@
+cd /home
 git clone https://github.com/mavlink-router/mavlink-router.git
 cd mavlink-router
 git submodule update --init --recursive
