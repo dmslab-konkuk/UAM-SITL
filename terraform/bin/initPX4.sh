@@ -27,3 +27,4 @@ sudo apt-get -y install git
 # sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 cd /home/PX4-Autopilot
 make px4_sitl_default none_iris
+
