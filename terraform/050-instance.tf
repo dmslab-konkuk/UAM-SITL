@@ -9,22 +9,24 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
   }
   security_groups = ["default"]
   image_id = "${var.image-px4}"
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     command     = "bin/initPX4.sh"
     interpreter = ["/bin/bash"]
     working_dir = path.module
 
     environment = {
+      PW = "${var.pw}"
       PX4_SIM_PORT=4560
       PX4_SIM_HOST_ADDR="117.16.136.191"
     }
   }
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     command     = "bin/initMavlink.sh"
     interpreter = ["/bin/bash"]
     working_dir = path.module
 
     environment = {
+      PW = "${var.pw}"
       MAV_PORT = 14550
       MAV_IP ="117.16.136.191"
     }
