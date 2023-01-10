@@ -15,7 +15,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
     working_dir = path.module
 
     environment = {
-      PW = "${var.pw}"
+      PW = "${var.kpw}"
       PX4_SIM_PORT=4560
       PX4_SIM_HOST_ADDR="117.16.136.191"
     }
@@ -26,7 +26,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
     working_dir = path.module
 
     environment = {
-      PW = "${var.pw}"
+      PW = "${var.kpw}"
       MAV_PORT = 14550
       MAV_IP ="117.16.136.191"
     }
