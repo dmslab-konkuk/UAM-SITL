@@ -20,11 +20,11 @@ sudo apt-get -y install git
 # sudo ninja -C build
 # sudo ninja -C build install
 # cd ..
-cat <<EOF > /etc/resolv.conf
-nameserver 8.8.8.8
-nameserver 8.8.4.4
-EOF
-sudo apt-get install ssh
-sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+# cat <<EOF > /etc/resolv.conf
+# nameserver 8.8.8.8
+# nameserver 8.8.4.4
+# EOF
+# sudo apt-get install ssh
+# sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 cd /home/PX4-Autopilot
 make px4_sitl_default none_iris
