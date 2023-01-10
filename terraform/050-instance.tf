@@ -37,8 +37,8 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
   provisioner "remote-exec" {
     inline =[
       "chmod +x /tmp/initMavlink.sh",
-      "MAV_PORT = 14550",
-      "MAV_IP=117.16.136.191",
+      "export MAV_PORT = 14550",
+      "export MAV_IP=117.16.136.191",
       "/tmp/initMavlink.sh"
     ]
   }

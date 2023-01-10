@@ -1,7 +1,7 @@
 #!/bin/bash
 # mkdir PX4
 # cd PX4
-sudo apt-get -y update&& sudo apt-get -y upgrade
+sudo apt-get -y update
 sudo apt-get -y install git
 # git clone -b forUAMSITL https://github.com/KwonSunJae/PX4-Autopilot.git --recursive
 # bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
