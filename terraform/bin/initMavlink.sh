@@ -1,4 +1,3 @@
-echo ${PW} | sudo -S su
 cd /home
 git clone https://github.com/mavlink-router/mavlink-router.git
 cd mavlink-router

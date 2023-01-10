@@ -9,27 +9,39 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
   }
   security_groups = ["default"]
   image_id = "${var.image-px4}"
-  provisioner "local-exec" {
-    command     = "bin/initPX4.sh"
-    interpreter = ["/bin/bash"]
-    working_dir = path.module
 
-    environment = {
-      PW = "${var.kpw}"
-      PX4_SIM_PORT=4560
-      PX4_SIM_HOST_ADDR="117.16.136.191"
+  connection {
+     type        = "ssh"
+     user        = "root"
+     host        = "${self.access_ip_v4}"
+     private_key = "${file("/root/.ssh/id_rsa")}"
+     password    = "!kadacloud204"
     }
-  }
-  provisioner "local-exec" {
-    command     = "bin/initMavlink.sh"
-    interpreter = ["/bin/bash"]
-    working_dir = path.module
 
-    environment = {
-      PW = "${var.kpw}"
-      MAV_PORT = 14550
-      MAV_IP ="117.16.136.191"
-    }
+  provisioner "file" {
+    source      = "bin/initPX4.sh"
+    destination = "/tmp/initPX4.sh"
   }
+  provisioner "file" {
+    source      = "bin/initMavlink.sh"
+    destination = "/tmp/initMavlink.sh"
+   }
+  provisioner "remote-exec" {
+    inline =[
+      "chmod +x /tmp/initPX4.sh",
+      "PX4_SIM_PORT=4560",
+      "PX4_SIM_HOST_ADDR=\"117.16.136.191\"",
+      "/tmp/initPX4.sh"
+    ]
+  }
+  provisioner "remote-exec" {
+    inline =[
+      "chmod +x /tmp/initMavlink.sh",
+      "MAV_PORT = 14550",
+      "MAV_IP=\"117.16.136.191\"",
+      "/tmp/initMavlink.sh"
+    ]
+  }
+  
   
 }
