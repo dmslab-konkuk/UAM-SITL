@@ -8,3 +8,4 @@ sudo meson setup build .
 sudo ninja -C build
 sudo ninja -C build install
 mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
+
