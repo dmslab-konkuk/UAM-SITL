@@ -14,7 +14,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
      type        = "ssh"
      user        = "root"
      host        = "${self.access_ip_v4}"
-     private_key = "${file("/root/.ssh/id_rsa")}"
+     private_key = "${file("/home/ubuntu/pem/dmslab.pem")}"
      password    = "!kadacloud204"
     }
 
