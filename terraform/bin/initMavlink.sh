@@ -15,7 +15,8 @@ After=syslog.target
 [Service]
 Environment=MAV_IP=${MAV_IP}
 Environment=MAV_PORT=${MAV_PORT}
-Type=simple
+Type=oneshot
+RemainAfterExit=true
 WorkingDirectory=/home/mavlink-router
 ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
 

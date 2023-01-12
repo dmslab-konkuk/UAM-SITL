@@ -33,7 +33,8 @@ After=syslog.target
 [Service]
 Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
 Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
-Type=simple
+Type=oneshot
+RemainAfterExit=true
 WorkingDirectory=/home/PX4-Autopilot
 ExecStart=make px4_sitl_default none_iris
 
