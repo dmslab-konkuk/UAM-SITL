@@ -36,7 +36,7 @@ Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
 Type=forking
 WorkingDirectory=/home/PX4-Autopilot
 ExecStart=make px4_sitl_default none_iris
-
+ExecStartPost=make px4_sitl_default none_iris
 [Install]
 WantedBy=multi-user.target
 EOF

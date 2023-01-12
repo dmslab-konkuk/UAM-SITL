@@ -18,7 +18,7 @@ Environment=MAV_PORT=${MAV_PORT}
 Environment=MAV_ID=${MAV_ID}
 Type=simple
 WorkingDirectory=/home/mavlink-router
-ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:14550
+ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
 
 [Install]
 WantedBy=multi-user.target

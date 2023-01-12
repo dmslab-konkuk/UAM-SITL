@@ -30,7 +30,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
     inline =[
       "chmod +x /tmp/initPX4.sh",
       "export PX4_SIM_PORT=4560",
-      "export MAV_ID=0",
+      "export MAV_ID=1",
       "export PX4_SIM_HOST_ADDR=117.16.136.191",
       "/tmp/initPX4.sh"
     ]
@@ -78,7 +78,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-02" {
     inline =[
       "chmod +x /tmp/initPX4.sh",
       "export PX4_SIM_PORT=4561",
-      "export MAV_ID=1",
+      "export MAV_ID=2",
       "export PX4_SIM_HOST_ADDR=117.16.136.191",
       "/tmp/initPX4.sh"
     ]
