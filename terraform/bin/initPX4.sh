@@ -29,6 +29,11 @@ cat <<EOF > /root/daemon.sh
 #!/bin/bash
 cd /home/PX4-Autopilot
 make px4_sitl_default none_iris
+
+while :
+do
+    echo "something"
+done
 EOF
 chmod +x /root/daemon.sh
 cat <<EOF > /etc/systemd/system/px4-daemon.service
