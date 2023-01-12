@@ -43,7 +43,6 @@ Environment=MAV_ID=${MAV_ID}
 Type=simple
 WorkingDirectory=/root
 ExecStart=/root/daemon.sh
-ExecStartPost=make px4_sitl_default none_iris
 [Install]
 WantedBy=multi-user.target
 EOF
