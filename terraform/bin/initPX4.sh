@@ -40,6 +40,7 @@ ExecStart=make px4_sitl_default none_iris
 [Install]
 WantedBy=multi-user.target
 EOF
-
+echo "============Daemon Apply============="
 systemctl start px4-daemon
 systemctl enable px4-daemon
+echo "============Daemon Complete============="
