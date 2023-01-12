@@ -7,5 +7,23 @@ sudo pip3 install meson
 sudo meson setup build .
 sudo ninja -C build
 sudo ninja -C build install
-mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
+cat <<EOF > /etc/systemd/system/px4-mav.service
+[Unit]
+Description=px4-mav
+After=syslog.target
+
+[Service]
+Environment=MAV_IP=${MAV_IP}
+Environment=PX4_SIM_ADDR=${MAV_PORT}
+Type=simple
+WorkingDirectory=/home/mavlink-router
+ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl start px4-mav
+systemctl enable px4-mav
+
 

@@ -31,7 +31,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
       "chmod +x /tmp/initPX4.sh",
       "export PX4_SIM_PORT=4560",
       "export PX4_SIM_HOST_ADDR=117.16.136.191",
-      "/tmp/initPX4.sh&"
+      "/tmp/initPX4.sh"
     ]
   }
   provisioner "remote-exec" {
@@ -39,7 +39,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-01" {
       "chmod +x /tmp/initMavlink.sh",
       "export MAV_PORT=14550",
       "export MAV_IP=117.16.136.163",
-      "/tmp/initMavlink.sh&"
+      "/tmp/initMavlink.sh"
     ]
   }
   
@@ -78,7 +78,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-02" {
       "chmod +x /tmp/initPX4.sh",
       "export PX4_SIM_PORT=4561",
       "export PX4_SIM_HOST_ADDR=117.16.136.191",
-      "/tmp/initPX4.sh&"
+      "/tmp/initPX4.sh"
     ]
   }
   provisioner "remote-exec" {
@@ -86,7 +86,7 @@ resource "openstack_compute_instance_v2" "terraform-instance-02" {
       "chmod +x /tmp/initMavlink.sh",
       "export MAV_PORT=14551",
       "export MAV_IP=117.16.136.163",
-      "/tmp/initMavlink.sh&"
+      "/tmp/initMavlink.sh"
     ]
   }
   

@@ -25,6 +25,21 @@ sudo apt-get -y install git
 # EOF
 # sudo apt-get install ssh
 # sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-cd /home/PX4-Autopilot
-make px4_sitl_default none_iris
+cat <<EOF > /etc/systemd/system/px4-daemon.service
+[Unit]
+Description=Daemon Test Service
+After=syslog.target
 
+[Service]
+Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
+Environment=PX4_SIM_ADDR=${PX4_SIM_ADDR}
+Type=simple
+WorkingDirectory=/home/PX4-Autopilot
+ExecStart=make px4_sitl_default none_iris
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl start px4-daemon
+systemctl enable px4-daemon
