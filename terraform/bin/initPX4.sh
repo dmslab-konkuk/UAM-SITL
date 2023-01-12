@@ -42,7 +42,7 @@ Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
 Environment=MAV_ID=${MAV_ID}
 Type=simple
 WorkingDirectory=/root
-ExecStart=./daemon.sh
+ExecStart=/root/daemon.sh
 ExecStartPost=make px4_sitl_default none_iris
 [Install]
 WantedBy=multi-user.target
