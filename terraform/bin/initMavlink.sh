@@ -13,6 +13,7 @@ Description=px4-mav
 After=syslog.target
 
 [Service]
+User=root
 Environment=MAV_IP=${MAV_IP}
 Environment=MAV_PORT=${MAV_PORT}
 Environment=MAV_ID=${MAV_ID}

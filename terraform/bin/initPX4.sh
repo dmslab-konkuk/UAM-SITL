@@ -31,6 +31,7 @@ Description=Daemon Test Service
 After=syslog.target
 
 [Service]
+User=root
 Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
 Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
 Type=forking
