@@ -26,6 +26,7 @@ sudo apt-get -y install git
 # sudo apt-get install ssh
 # sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 cat <<EOF > /root/daemon.sh
+#!/bin/bash
 cd /home/PX4-Autopilot
 make px4_sitl_default none_iris
 EOF
@@ -40,8 +41,7 @@ User=root
 Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
 Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
 Environment=MAV_ID=${MAV_ID}
-Type=oneshot
-RemainAfterExit=true
+Type=simple
 WorkingDirectory=/root
 ExecStart=/root/daemon.sh
 [Install]
