@@ -15,9 +15,10 @@ After=syslog.target
 [Service]
 Environment=MAV_IP=${MAV_IP}
 Environment=MAV_PORT=${MAV_PORT}
+Environment=MAV_ID=${MAV_ID}
 Type=simple
 WorkingDirectory=/home/mavlink-router
-ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:${MAV_PORT}
+ExecStart= mavlink-routerd -e ${MAV_IP}:${MAV_PORT} 127.0.0.1:14550
 
 [Install]
 WantedBy=multi-user.target
