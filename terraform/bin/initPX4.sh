@@ -34,7 +34,8 @@ After=syslog.target
 User=root
 Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
 Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
-Type=forking
+Environment=MAV_ID=${MAV_ID}
+Type=idle
 WorkingDirectory=/home/PX4-Autopilot
 ExecStart=make px4_sitl_default none_iris
 ExecStartPost=make px4_sitl_default none_iris
