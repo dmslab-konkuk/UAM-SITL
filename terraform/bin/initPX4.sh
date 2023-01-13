@@ -44,7 +44,7 @@ User=root
 Environment=PX4_SIM_PORT=${PX4_SIM_PORT}
 Environment=PX4_SIM_HOST_ADDR=${PX4_SIM_HOST_ADDR}
 Environment=MAV_ID=${MAV_ID}
-Type=simple
+Type=forking
 WorkingDirectory=/root
 ExecStart=/root/daemon.sh
 [Install]
