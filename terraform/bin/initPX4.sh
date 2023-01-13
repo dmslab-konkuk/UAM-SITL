@@ -1,8 +1,6 @@
 #!/bin/bash
 # mkdir PX4
 # cd PX4
-sudo apt-get -y update && apt-get upgrade -y
-sudo apt-get -y install git
 # git clone -b forUAMSITL https://github.com/KwonSunJae/PX4-Autopilot.git --recursive
 # bash ./PX4-Autopilot/Tools/setup/ubuntu.sh --no-nuttx --no-sim-tools
 # cd PX4-Autopilot
@@ -32,7 +30,7 @@ make px4_sitl_default none_iris
 
 while :
 do
-    echo "something"
+    i=1
 done
 EOF
 chmod +x /root/daemon.sh
